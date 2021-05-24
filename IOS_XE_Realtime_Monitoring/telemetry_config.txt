@@ -1,0 +1,27 @@
+netconf-yang
+
+telemetry ietf subscription 101
+ encoding encode-kvgpb
+ filter xpath /process-cpu-ios-xe-oper:cpu-usage/cpu-utilization/five-seconds
+ stream yang-push
+ update-policy periodic 500
+ receiver ip address 192.168.1.111 57500 protocol grpc-tcp
+telemetry ietf subscription 102
+ encoding encode-kvgpb
+ filter xpath /interfaces-ios-xe-oper:interfaces/interface/statistics/in-octets
+ stream yang-push
+ update-policy periodic 500
+ receiver ip address 192.168.1.111 57500 protocol grpc-tcp
+telemetry ietf subscription 103
+ encoding encode-kvgpb
+ filter xpath /memory-ios-xe-oper:memory-statistics/memory-statistic/free-memory
+ stream yang-push
+ update-policy periodic 500
+ receiver ip address 192.168.1.111 57500 protocol grpc-tcp
+telemetry ietf subscription 104
+ encoding encode-kvgpb
+ filter xpath /interfaces-ios-xe-oper:interfaces/interface/speed
+ stream yang-push
+ update-policy periodic 500
+ receiver ip address 192.168.1.111 57500 protocol grpc-tcp
+
